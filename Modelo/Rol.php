@@ -62,7 +62,7 @@ class Rol {
         
         if($this->getroDescripcion() != null){
             // Consulta para insertar el nuevo rol
-            $sql = "INSERT INTO rol(roDescripcion) VALUES ('".$this->getroDescripcion()."')";
+            $sql = "INSERT INTO rol(rodescripcion) VALUES ('".$this->getroDescripcion()."')";
             
             if ($base->Iniciar()) {
                 if ($base->Ejecutar($sql)) {
@@ -137,10 +137,6 @@ class Rol {
                     array_push($arreglo, $obj);
                 }
             }
-        }
-        // Si solo hay un usuario, devolver su ID
-        if (count($arreglo) === 1) {
-            return $arreglo[0]->getidRol(); // Devuelve el ID del rol
         }
         return $arreglo; // Asegúrate de siempre retornar un array
     }

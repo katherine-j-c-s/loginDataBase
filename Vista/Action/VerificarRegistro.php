@@ -35,7 +35,7 @@ $rol = $abmRol->agregarNuevoRol($rolDesc);
         <h2>Usuario</h2>
         <div class="container text-center">
             <h1><?php echo $usuario; ?></h1>
-            <!-- <h1><?php echo $rol; ?></h1>  -->
+            <h1><?php echo $rol; ?></h1>
         </div>
     </div>
 </main>

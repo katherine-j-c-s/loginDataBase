@@ -20,18 +20,17 @@ class ABMRol {
     public function obtenerDatosRol($descripcion) {
        
         $roles = Rol::listar("rodescripcion = '" . $descripcion . "'"); // Ajusta el nombre de la tabla según sea necesario
-        $salida = null;
-        if (is_array($roles) && count($roles) > 0) {
-            $salida = $roles[0]; // Solo toma el primer resultado si existe
+        $salida = "";
+        if (count($roles) > 0) {
+            $salida = $roles[0];
+        } else {
+            $salida = null;
         }
-        
-        return $salida; // Devuelve el rol encontrado o null
+        return $salida;
     }
     public function agregarNuevoRol($roDescripcion) {
         $salida = "";
         $resultado = $this->obtenerDatosRol($roDescripcion);
-        
-        
         if ($resultado === null) {
             try {
                 $objrol = new Rol();
@@ -42,7 +41,7 @@ class ABMRol {
                 $salida = "Error al registrar el rol: " . $e->getMessage();
             }
         } else {
-            $salida = $resultado;
+            $salida = $resultado->getidRol();
         }
         return $salida;
     }
