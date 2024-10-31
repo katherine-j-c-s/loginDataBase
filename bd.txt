@@ -1,0 +1,20 @@
+CREATE DATABASE Autentificación
+
+CREATE TABLE rol (
+    rodescripcion VARCHAR(50) ,
+    idRol INT PRIMARY KEY AUTO_INCREMENT
+)
+
+CREATE TABLE usuario (
+    usnombre VARCHAR(50) ,
+    uspass int(11) ,
+    usmail VARCHAR(50) ,
+    usdeshabilitado VARCHAR(50) ,
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT
+)
+CREATE TABLE usuarioRol (
+    idUsuario INT ,
+    idRol INT,
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
+    FOREIGN KEY (idRol) REFERENCES rol(idRol)
+)
